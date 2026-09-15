@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+d7j+gy#f@p-f6(bqsb%q@999f88*)(h#2h9x+jij2l+dis&=c'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-+d7j+gy#f@p-f6(bqsb%q@999f88*)(h#2h9x+jij2l+dis&=c')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['learning-log.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
